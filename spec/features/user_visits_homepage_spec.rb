@@ -5,5 +5,4 @@ RSpec.feature "user visits homepage" do
     visit root_path
     expect(page).to have_content "Gist The Facts"
   end
-
 end

@@ -1,1 +1,5 @@
 <h1>This is my app Gist The Facts</h1>
+<% @posts.each do |post| %>
+  <%= post.title %>
+  <%= post.body %>
+<% end %>
