@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Creating post" do
-  let(:user) { User.create(username: "exampleuser", email: "example@example.com", password: 'password', password_confirmation: 'password') }
+  let(:user) { create(:user) }
 
   scenario "successfully" do
     sign_in user
@@ -14,13 +14,13 @@ RSpec.feature "Creating post" do
     click_on "Publish"
     within(".posts") do
       expect(page).to have_content "My first gist"
-      expect(page).to have_content "exampleuser"
+      expect(page).to have_content user.username
     end
   end
 
   scenario "unsuccessfully" do
     sign_in user
-    
+
     visit root_path
     click_on "Write a gist"
 
