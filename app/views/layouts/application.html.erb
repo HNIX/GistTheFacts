@@ -9,12 +9,14 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %> 
+    <%= render 'layouts/header' %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div class="containter">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
 
   </body>
 </html>
