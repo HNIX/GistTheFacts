@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Edit Profile</h1>
+
+    <%= form_for(@user) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update" %>
+      </div>
+    <% end %>
+
+    <%= link_to "Back", :back %>
+  </div>
+</div>
