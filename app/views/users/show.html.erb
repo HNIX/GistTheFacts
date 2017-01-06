@@ -1,9 +1,15 @@
 <h1>Profile for <%= @user.username %></h1>
 <%= avatar_for(@user) %>
 <%= @user.description %>
+
 <% if user_signed_in? && current_user?(@user) %>
   <%= link_to "Edit profile", edit_user_path %>
 <% end %>
+
 <% if user_signed_in? && !current_user?(@user) %>
-  <button>Follow</button>
+  <% if current_user.following?(@user) %>
+    <%= button_to "Unfollow", relationships_path(user_id: @user.id), method: :delete, class: "button" %>
+  <% else %>
+    <%= button_to "Follow", relationships_path(user_id: @user.id), class: "button" %>
+  <% end %>
 <% end %>
