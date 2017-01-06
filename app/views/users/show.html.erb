@@ -1,4 +1,9 @@
 <h1>Profile for <%= @user.username %></h1>
 <%= avatar_for(@user) %>
-<%= @user.description %> 
-<%= link_to "Edit profile", edit_user_path %>
+<%= @user.description %>
+<% if user_signed_in? && current_user?(@user) %>
+  <%= link_to "Edit profile", edit_user_path %>
+<% end %>
+<% if user_signed_in? && !current_user?(@user) %>
+  <button>Follow</button>
+<% end %>
